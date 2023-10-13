@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+#include <array>
+#include <utility>
+#include <algorithm>
+#ifdef ONLINE_JUDGE
+#include <bits/stdc++.h>
+#endif
+using namespace std;
+
+#define FF first
+#define SS second
+#define pb push_back
+#define all(x) (x).begin(), (x).end()
+#define rall(x) (x).rbegin(), (x).rend()
+#define clr(cnt, x) memset((cnt), (x), sizeof(cnt))
+#define translow(x) transform((x).begin(), (x).end(), (x).begin(), ::tolower)
+#define sz(n) (int)(n).size()
+#define FOR(i, a, b) for (int i = a; i < (b); i++)
+#define max(a) *max_element(a.begin(), a.end());
+#define PI 2 * acos(0)
+#define YES cout << "YES" << endl
+#define NO cout << "NO" << endl
+#define maxint 2147483647
+#define maxll 9223372036854775807
+#define EL cout << endl
+
+typedef string str;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<ll> vl;
+typedef vector<pair<int, int>> vii;
+typedef pair<int, int> pii;
+typedef vector<bool> vbl;
+typedef vector<pair<ll, ll>> vll;
+typedef pair<ll, ll> pll;
+
+int cas = 0;
+
+int main()
+{
+    ll t, n, a, i, j, sum, f1, f2;
+    cin >> t;
+    for (i = 1; i <= t; i++)
+    {
+        cout << "Case " << i << ": ";
+        cin >> n;
+        sum = (n * (n + 1)) / 2;
+        cin >> a;
+        f1 = a;
+        f2 = 1;
+        for (j = 2; j <= n; j++)
+        {
+            cin >> a;
+            if (f1 == a)
+                f2++;
+            else
+            {
+                sum -= (f2 * (f2 + 1) / 2);
+                f1 = a, f2 = 1;
+            }
+        }
+
+        sum -= (f2 * (f2 + 1) / 2);
+
+        cout << sum << endl;
+    }
+}
